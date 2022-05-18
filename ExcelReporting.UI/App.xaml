@@ -1,0 +1,9 @@
+﻿<Application x:Class="ExcelReporting.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ExcelReporting.UI"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Button x:Key="batton">Test</Button>
+    </Application.Resources>
+</Application>
