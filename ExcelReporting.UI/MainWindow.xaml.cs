@@ -24,6 +24,7 @@ namespace ExcelReporting.UI
         public MainWindow()
         {
             InitializeComponent();
+            Title = "Генератор отчетов";
         }
     }
 }

@@ -5,10 +5,10 @@ using UserControl = System.Windows.Controls.UserControl;
 
 namespace ExcelReporting.UI.Utilities
 {
-    public partial class FolderEntry : UserControl
+    public partial class FileEntry : UserControl
     {
-        public static DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(FolderEntry), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
-        public static DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(FolderEntry), new PropertyMetadata(null));
+        public static DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(FileEntry), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+        public static DependencyProperty DescriptionProperty = DependencyProperty.Register("Description", typeof(string), typeof(FileEntry), new PropertyMetadata(null));
 
         public string Text
         {
@@ -22,7 +22,7 @@ namespace ExcelReporting.UI.Utilities
             set => SetValue(DescriptionProperty, value);
         }
 
-        public FolderEntry() { InitializeComponent(); }
+        public FileEntry() { InitializeComponent(); }
 
         private void BrowseFolder(object sender, RoutedEventArgs e)
         {

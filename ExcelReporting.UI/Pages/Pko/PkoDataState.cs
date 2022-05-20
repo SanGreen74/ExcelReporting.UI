@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace ExcelReporting.UI
+namespace ExcelReporting.UI.Pages.Pko
 {
-    public class PkoDataTracker : INotifyPropertyChanged
+    public class PkoDataState : INotifyPropertyChanged
     {
         private string pathToFile;
         public string PathToFile
@@ -27,9 +27,9 @@ namespace ExcelReporting.UI
             set => UpdateValue(nameof(ShopAddress), ref shopAddress, ref value);
         }
 
-        private int documentNumber;
+        private int? documentNumber;
 
-        public int DocumentNumber
+        public int? DocumentNumber
         {
             get => documentNumber;
             set => UpdateValue(nameof(DocumentNumber), ref documentNumber, ref value);
@@ -42,8 +42,8 @@ namespace ExcelReporting.UI
             set => UpdateValue(nameof(ComplicationDate), ref complicationDate, ref value);
         }
 
-        private int zCauseNumber;
-        public int ZCauseNumber
+        private int? zCauseNumber;
+        public int? ZCauseNumber
         {
             get => zCauseNumber;
             set => UpdateValue(nameof(ZCauseNumber), ref zCauseNumber, ref value);
@@ -56,20 +56,28 @@ namespace ExcelReporting.UI
             set => UpdateValue(nameof(AcceptedByPersons), ref acceptedByPersons, ref value);
         }
 
-        private int debitRub;
+        private int? debitRub;
 
-        public int DebitRub
+        public int? DebitRub
         {
             get => debitRub;
             set => UpdateValue(nameof(DebitRub), ref debitRub, ref value);
         }
 
-        private int debitKop;
+        private int? debitKop;
 
-        public int DebitKop
+        public int? DebitKop
         {
             get => debitKop;
             set => UpdateValue(nameof(DebitKop), ref debitKop, ref value);
+        }
+
+        private string acceptedByPerson;
+
+        public string AcceptedByPerson
+        {
+            get => acceptedByPerson;
+            set => UpdateValue(nameof(AcceptedByPerson), ref acceptedByPerson, ref value);
         }
         
         public event PropertyChangedEventHandler PropertyChanged;

@@ -5,7 +5,8 @@ namespace ExcelReporting.UI
 {
     internal static class RemoteServerClient
     {
-        private static readonly ExcelReportClient Client = new ExcelReportClient("http://localhost:5003");
+        //http://nsatin.ru
+        private static readonly ExcelReportClient Client = new ExcelReportClient("http://nsatin.ru");
 
         public static IPkoExcelReportClient Pko => Client.Pko;
     }
