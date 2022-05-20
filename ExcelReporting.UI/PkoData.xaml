@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="ExcelReporting.UI.PkoData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ExcelReporting.UI"
+             xmlns:utilities="clr-namespace:ExcelReporting.UI.Utilities"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5px">
+            <TextBlock Margin="0 0 10px 0">Укажите путь до файла ПКО</TextBlock>
+            <utilities:FolderEntry x:Name="MyFolderEntry" Text="{Binding Path=PathToFile}"></utilities:FolderEntry>
+        </StackPanel>
+        <Button Grid.Row="1" Name="LoadFileButton" >
+            Рассчитать данные для следующего отчета
+        </Button>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="0 0 5 0">Адрес магазина:</TextBlock>
+            <TextBlock Text="{Binding Path=ShopAddress}"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="0 0 5 0">Номер документа:</TextBlock>
+            <TextBox Text="{Binding Path=DocumentNumber}" Width="70px"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="0 0 7 0">Дата составления:</TextBlock>
+            <TextBox Width="70px">
+                <TextBox.Text>
+                    <Binding Path="ComplicationDate">
+                        <Binding.ValidationRules >
+                            <local:DateValidationRule ValidatesOnTargetUpdated="True"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+            <TextBlock FontWeight="Light" Margin="5 0 0 0">(формат: 12.08.1998)</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="0 0 19 0">Номер Z отчета:</TextBlock>
+            <TextBox Text="{Binding Path=ZCauseNumber}" Width="70px"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="0 0 50 0">Принят от:</TextBlock>
+            <ComboBox Name="AcceptedByPersonsComboBox" IsEditable="True" IsReadOnly="False" ItemsSource="{Binding Path=AcceptedByPersons}" Width="100px">
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock FontWeight="Bold" Margin="0 0 29 0">Дебет. Сумма:</TextBlock>
+            <TextBox Width="50px" Margin="0 0 5 0" Text="{Binding Path=DebitRub}"></TextBox>
+            <TextBlock FontWeight="Black" Text="руб." Margin="0 0 5 0"/>
+            <TextBox Width="50px" Margin="0 0 5 0" Text="{Binding Path=DebitKop}"></TextBox>
+            <TextBlock FontWeight="Black" Text="коп."/>
+        </StackPanel>
+        <Button Grid.Row="8" Name="CreateNextButton">
+            Сформировать следующий отчет
+        </Button>
+    </Grid>
+</UserControl>
